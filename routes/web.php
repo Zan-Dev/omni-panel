@@ -28,11 +28,11 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/profile', function(){
         return view('users.profile');
-    });
+    })->name('profile');
 
     Route::get('/data-table', function(){
         return view('table.data-table');
-    });
+    })->name('table');
 });
 
 Route::get('forgot-password', function(){

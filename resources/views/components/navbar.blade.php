@@ -23,7 +23,7 @@
 
         <!-- Menu -->
         <nav class="flex-1">
-            <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
+            <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'flex items-center space-x-2 p-3 pl-5 bg-gray-700' : 'flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700' }}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2 7-7 7 7 2 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8z"></path>
                 </svg>
@@ -36,7 +36,9 @@
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>
-                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">component</span>
+                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
+                    component
+                </span>
             </a>
 
             <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
@@ -98,7 +100,7 @@
 
             </div>
 
-            <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
+            <a href="{{ route('table') }}" class="{{ request()->is('data-table') ? 'flex items-center space-x-2 p-3 pl-5 bg-gray-700' : 'flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700'}}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3V3zM3 9h18M9 3v18"></path>
                 </svg>
@@ -107,7 +109,7 @@
                 </span>
             </a>
 
-            <a href="/profile" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
+            <a href="{{ route('profile') }}" class="{{ request()->is('profile') ? 'flex items-center space-x-2 p-3 pl-5 bg-gray-700' : 'flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700' }}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c-4.418 0-8 3.582-8 8h16c0-4.418-3.582-8-8-8zM12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"></path>
                 </svg>
