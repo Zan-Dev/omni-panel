@@ -29,6 +29,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/profile', function(){
         return view('users.profile');
     });
+
+    Route::get('/data-table', function(){
+        return view('table.data-table');
+    });
 });
 
 Route::get('forgot-password', function(){

@@ -14,6 +14,7 @@
         <link href="{{ asset("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i") }}" rel="stylesheet">
         <link href="{{ asset("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap") }}" rel="stylesheet">                
         <link href="{{ asset("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap") }}" rel="stylesheet">
+        <link href={{ asset("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css") }} rel="stylesheet">
            
     </head>
     <body class="flex min-h-screen">        
@@ -49,6 +50,7 @@
         {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> --}}
 
         <!-- Template Main JS File -->   
-        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>     
+        <script src="{{ asset("https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js") }}" defer></script>         
+        <script src="{{ asset("https://cdn.tailwindcss.com") }}"></script>    
     </body>   
 </html>
