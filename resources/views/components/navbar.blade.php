@@ -52,14 +52,14 @@
 
             <!-- Dropdown -->
             <div class="relative">
-                <button @click="[submenu = !submenu, open = true]"  class="flex items-center space-x-2 p-3 pl-5 w-full hover:bg-gray-700 focus:outline-none">
+                <button @click="[submenu = !submenu, open = true]"  class="flex item-center space-x-2 p-3 pl-5 w-full hover:bg-gray-700 focus:outline-none">
                     <!-- Icon Chart -->
                     <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 10v8M11 6v12M15 12v6M19 8v10"></path>
                     </svg>
                 
                     <!-- Teks -->
-                    <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
+                    <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="flex flex-grow transition-opacity duration-300">
                         Chart
                     </span>
                 
@@ -81,9 +81,9 @@
                     x-transition:leave-end="opacity-0 translate-y-[-10px]"
                     class="ml-6 rounded-lg shadow-lg my-1">
                     
-                    <a href="#" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"
+                    <a href="{{ route('chart') }}" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"
                         class="block p-2 rounded-2xl text-white hover:bg-gray-600">
-                        Web Development
+                        Data Chart
                     </a>
                     
                     <a href="#" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"

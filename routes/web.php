@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartController;
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function(){
@@ -33,6 +34,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/data-table', function(){
         return view('table.data-table');
     })->name('table');
+
+    Route::get('/chart', [ChartController::class, 'index'])->name('chart');
 });
 
 Route::get('forgot-password', function(){
