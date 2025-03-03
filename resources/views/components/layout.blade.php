@@ -28,7 +28,7 @@
         
         <!-- ======= Main Content ======= -->
         <main class="flex-1 flex flex-col h-screen overflow-auto ">
-            <main class="flex-1 bg-white">
+            <main class="flex-1 bg-gray-200">
                 {{ $slot }}
             </main>                    
 

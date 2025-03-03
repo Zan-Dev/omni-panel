@@ -7,6 +7,8 @@ use App\Charts\Chart;
 class ChartController extends Controller
 {
     public function index(Chart $chart){
-        return view('chart.chart',['chart'=> $chart->build()]);
+        $charts = $chart->build();
+        return view('chart.chart',compact('charts'));
+
     }
 }

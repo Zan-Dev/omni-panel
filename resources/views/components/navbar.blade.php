@@ -4,7 +4,7 @@
     <div :class="open ? 'w-64' : 'w-16'" class="bg-gray-800 text-white h-full transition-all duration-300 flex flex-col">
         
         <!-- Logo & Toggle -->
-        <div class="flex items-center justify-between p-4">
+        <div class="flex items-center justify-between p-3 ">
             <span 
                 x-show="open"
                 x-transition.opacity.duration.300ms        
@@ -20,6 +20,9 @@
                 </svg>
             </button>
         </div>
+        
+        <hr class="border-t-2 border-gray-300 mx-3">
+
 
         <!-- Menu -->
         <nav class="flex-1">
@@ -32,46 +35,22 @@
                 </span>
             </a>
 
-            <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
-                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                </svg>
-                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
-                    component
-                </span>
-            </a>
-
-            <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
-                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h4l2 4h10v10H3V7z"></path>
-                </svg>
-                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
-                    Pages
-                </span>
-            </a>
-
             <!-- Dropdown -->
-            <div class="relative">
+            <div>             
                 <button @click="[submenu = !submenu, open = true]"  class="flex item-center space-x-2 p-3 pl-5 w-full hover:bg-gray-700 focus:outline-none">
-                    <!-- Icon Chart -->
                     <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 10v8M11 6v12M15 12v6M19 8v10"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                
-                    <!-- Teks -->
                     <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="flex flex-grow transition-opacity duration-300">
-                        Chart
+                        component
                     </span>
-                
-                    <!-- Ikon Panah Kanan --> 
                     <svg class="w-5 h-5 flex-shrink-20 transform transition-transform duration-300 ml-auto" 
-                        :class="submenu ? 'rotate-90' : 'rotate-0'" 
+                        :class="submenu ? 'rotate-45' : 'rotate-0'" 
                         fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
-                
-                
+
                 <div x-show="submenu && open" 
                     x-transition:enter="transition transform ease-out duration-300"
                     x-transition:enter-start="opacity-0 translate-y-[-10px]"
@@ -81,9 +60,9 @@
                     x-transition:leave-end="opacity-0 translate-y-[-10px]"
                     class="ml-6 rounded-lg shadow-lg my-1">
                     
-                    <a href="{{ route('chart') }}" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"
+                    <a href="{{ route('button') }}" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"
                         class="block p-2 rounded-2xl text-white hover:bg-gray-600">
-                        Data Chart
+                        Button
                     </a>
                     
                     <a href="#" :class="open ? 'opacity-100 visible' : 'opacity-0 invisible'"
@@ -97,8 +76,30 @@
                     </a>
 
                 </div>
+            </div>        
 
-            </div>
+            <a href="#" class="flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h4l2 4h10v10H3V7z"></path>
+                </svg>
+                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
+                    Pages
+                </span>
+            </a>
+            
+            
+            <a href="{{ route('chart') }}" class="{{ request()->is('chart') ? 'flex items-center space-x-2 p-3 pl-5 bg-gray-700' : 'flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700'}}">
+                <!-- Icon Chart -->
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 10v8M11 6v12M15 12v6M19 8v10"></path>
+                </svg>
+            
+                <!-- Teks -->
+                <span :class="open ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'" class="transition-opacity duration-300">
+                    Chart
+                </span>                            
+            </a>                                            
+            
 
             <a href="{{ route('table') }}" class="{{ request()->is('data-table') ? 'flex items-center space-x-2 p-3 pl-5 bg-gray-700' : 'flex items-center space-x-2 p-3 pl-5 hover:bg-gray-700'}}">
                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

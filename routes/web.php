@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function(){
         return view('table.data-table');
     })->name('table');
 
+    Route::get('/componenet/button', function(){
+        return view('components.button');
+    })->name('button');
+
     Route::get('/chart', [ChartController::class, 'index'])->name('chart');
 });
 
